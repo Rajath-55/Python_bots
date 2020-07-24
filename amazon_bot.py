@@ -14,19 +14,15 @@ driver.get(URL)
 print(driver.title)
 # print(driver.page_source)
 
-search = driver.find_element_by_name("s")
-search.send_keys("test")
+search = driver.find_element_by_id("twotabsearchtextbox")
+search.send_keys("iPhone 11")
 search.send_keys(Keys.RETURN)
+time.sleep(10)
 try:
-    main = WebDriverWait(driver,15).until(EC.presence_of_element_located((By.ID, 'main')))
+    spans = driver.find_elements_by_name('span')
+    print(spans)
 except:
     driver.quit()
 
-print(main.text)
-articles = main.find_elements_by_tag_name('article')
-for article in articles:
-    header = article.find_element_by_class_name("entry-summary")
-    print(header.text)
-time.sleep(20)
-driver.quit()
+
 
