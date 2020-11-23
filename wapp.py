@@ -8,8 +8,12 @@ message_box = './images/message.png'
 
 browser = wb.get('google-chrome')
 
-names = ['Pareekshith']
-messages = ['this be bot ', 'I aint typing shit', 'Tis getting sent automatically lmao', 'Enjoy']
+names = ['Chinmaya Bhat']
+messages = []
+file = open('dante.txt', 'r')
+for line in file:
+    messages.append(line)
+    
 browser.open('https://web.whatsapp.com')
 coordinates = None
 x = 1
